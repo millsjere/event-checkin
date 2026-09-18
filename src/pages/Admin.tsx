@@ -9,6 +9,16 @@ export default function Admin() {
   const [checkingSession, setCheckingSession] = useState(true)
 
   useEffect(() => {
+    const meta = document.createElement('meta')
+    meta.name = 'robots'
+    meta.content = 'noindex, nofollow'
+    document.head.appendChild(meta)
+    return () => {
+      document.head.removeChild(meta)
+    }
+  }, [])
+
+  useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session)
       setCheckingSession(false)
