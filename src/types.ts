@@ -3,7 +3,7 @@ export interface Checkin {
   first_name: string
   last_name: string
   phone: string
-  email: string
+  email: string | null
   created_at: string
 }
 

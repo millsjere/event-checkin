@@ -1,12 +1,17 @@
 -- VLISCO SIP & SHOP — check-in table
 -- Run this once in the Supabase SQL editor (Project → SQL Editor → New query).
+--
+-- If you already created the table with `email text not null`, run this
+-- migration instead to make email optional (unique index still allows
+-- multiple NULLs, so guests without an email won't collide):
+--   alter table public.checkins alter column email drop not null;
 
 create table if not exists public.checkins (
   id uuid primary key default gen_random_uuid(),
   first_name text not null,
   last_name text not null,
   phone text not null,
-  email text not null,
+  email text,
   created_at timestamptz not null default now()
 );
 

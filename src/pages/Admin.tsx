@@ -170,7 +170,7 @@ function Dashboard() {
     const q = search.trim().toLowerCase()
     if (!q) return checkins
     return checkins.filter((c) =>
-      [c.first_name, c.last_name, c.email, c.phone].some((v) => v.toLowerCase().includes(q)),
+      [c.first_name, c.last_name, c.email, c.phone].some((v) => (v ?? '').toLowerCase().includes(q)),
     )
   }, [checkins, search])
 
@@ -180,7 +180,7 @@ function Dashboard() {
       c.first_name,
       c.last_name,
       c.phone,
-      c.email,
+      c.email ?? '',
       new Date(c.created_at).toLocaleString(),
     ])
     const csv = [header, ...rows]
@@ -266,7 +266,8 @@ function Dashboard() {
                     {c.first_name} {c.last_name}
                   </p>
                   <p className="text-white/50 text-xs truncate">
-                    {c.phone} · {c.email}
+                    {c.phone}
+                    {c.email && ` · ${c.email}`}
                   </p>
                   <p className="text-white/30 text-[11px] mt-0.5">
                     {new Date(c.created_at).toLocaleString()}

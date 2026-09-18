@@ -26,7 +26,7 @@ export default function CheckIn() {
     if (!form.last_name.trim()) next.last_name = 'Required'
     const digits = form.phone.replace(/\D/g, '')
     if (digits.length < 7) next.phone = 'Enter a valid phone number'
-    if (!EMAIL_RE.test(form.email.trim())) next.email = 'Enter a valid email'
+    if (form.email.trim() && !EMAIL_RE.test(form.email.trim())) next.email = 'Enter a valid email'
     setErrors(next)
     return Object.keys(next).length === 0
   }
@@ -42,7 +42,7 @@ export default function CheckIn() {
       first_name: form.first_name.trim(),
       last_name: form.last_name.trim(),
       phone: form.phone.trim(),
-      email: form.email.trim().toLowerCase(),
+      email: form.email.trim() ? form.email.trim().toLowerCase() : null,
     })
 
     if (!error) {
@@ -118,7 +118,7 @@ export default function CheckIn() {
             inputMode="tel"
           />
           <Field
-            label="Email address"
+            label="Email address (optional)"
             type="email"
             value={form.email}
             error={errors.email}
