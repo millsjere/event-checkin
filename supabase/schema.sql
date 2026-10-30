@@ -1,4 +1,4 @@
--- VLISCO SIP & SHOP — check-in table
+-- VLISCO VIBE — check-in table
 -- Run this once in the Supabase SQL editor (Project → SQL Editor → New query).
 --
 -- If you already created the table with `email text not null`, run this

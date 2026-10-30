@@ -1,4 +1,4 @@
-# VLISCO SIP & SHOP — Event Check-In
+# VLISCO VIBE — Event Check-In
 
 Mobile-first guest check-in system. Guests scan a QR code, land on a public
 form (first name, last name, phone, email), and their check-in is stored in

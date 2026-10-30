@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../lib/supabase'
 import type { Checkin } from '../types'
+import { EVENT_TITLE } from '../lib/event'
 import vliscoLogo from '../assets/vlisco-logo.png'
 
 export default function Admin() {
@@ -69,7 +70,7 @@ function Login() {
           <img src={vliscoLogo} alt="Vlisco" className="h-8 w-auto" />
         </div>
         <h1 className="font-display text-2xl text-white mb-1">Admin Login</h1>
-        <p className="text-white/50 text-sm mb-6">VLISCO SIP & SHOP guest list</p>
+        <p className="text-white/50 text-sm mb-6">{EVENT_TITLE} guest list</p>
 
         <label className="block mb-4">
           <span className="block text-xs font-medium text-white/70 mb-1.5">Email</span>
@@ -190,7 +191,7 @@ function Dashboard() {
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = `vlisco-sip-shop-checkins-${new Date().toISOString().slice(0, 10)}.csv`
+    link.download = `${EVENT_TITLE.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-checkins-${new Date().toISOString().slice(0, 10)}.csv`
     link.click()
     URL.revokeObjectURL(url)
   }
@@ -201,7 +202,7 @@ function Dashboard() {
         <header className="flex items-start justify-between gap-3 mb-6">
           <div>
             <p className="uppercase tracking-[0.3em] text-gold-400 text-[11px] font-semibold mb-1">
-              VLISCO SIP &amp; SHOP
+              {EVENT_TITLE}
             </p>
             <h1 className="font-display text-2xl text-white">Guest Check-Ins</h1>
           </div>

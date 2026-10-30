@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { supabase } from '../lib/supabase'
 import type { CheckinInput } from '../types'
+import { EVENT_TITLE } from '../lib/event'
 import vliscoLogo from '../assets/vlisco-logo.png'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -81,7 +82,7 @@ export default function CheckIn() {
           You're Invited
         </p>
         <h1 className="font-display text-3xl leading-tight text-white">
-          SIP &amp; SHOP
+          {EVENT_TITLE}
         </h1>
         <p className="text-white/60 text-sm mt-4">
           Welcome! Please check in below to let us know you've arrived.
@@ -215,8 +216,8 @@ function ConfirmationScreen({
       </h1>
       <p className="text-white/60 text-sm max-w-xs mb-8">
         {alreadyCheckedIn
-          ? "We already have your check-in for VLISCO SIP & SHOP. Enjoy the event!"
-          : "You're checked in for VLISCO SIP & SHOP. Enjoy the sip, the shop, and everything in between."}
+          ? `We already have your check-in for ${EVENT_TITLE}. Enjoy the event!`
+          : `You're checked in for ${EVENT_TITLE}. Enjoy the event!`}
       </p>
       <button
         onClick={onReset}
