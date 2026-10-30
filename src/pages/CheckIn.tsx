@@ -73,7 +73,7 @@ export default function CheckIn() {
   }
 
   return (
-    <div className="min-h-dvh bg-plum-950 bg-[radial-gradient(circle_at_top,var(--color-plum-800),var(--color-plum-950)_65%)] px-5 py-10 flex flex-col items-center">
+    <div className="min-h-dvh bg-plum-950 px-5 py-10 flex flex-col items-center">
       <header className="text-center mb-8 max-w-sm flex flex-col items-center">
         <div className="bg-white rounded-2xl px-6 py-4 mb-5 shadow-lg shadow-black/20">
           <img src={vliscoLogo} alt="Vlisco" className="h-14 w-auto" />
@@ -196,7 +196,7 @@ function ConfirmationScreen({
   onReset: () => void
 }) {
   return (
-    <div className="min-h-dvh bg-plum-950 bg-[radial-gradient(circle_at_top,var(--color-plum-800),var(--color-plum-950)_65%)] px-5 py-10 flex flex-col items-center justify-center text-center">
+    <div className="min-h-dvh bg-plum-950 px-5 py-10 flex flex-col items-center justify-center text-center">
       <div className="bg-white rounded-2xl px-6 py-4 mb-6 shadow-lg shadow-black/20">
         <img src={vliscoLogo} alt="Vlisco" className="h-10 w-auto" />
       </div>
